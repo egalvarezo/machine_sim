@@ -1,5 +1,5 @@
 def asm_pio(*args, **kwargs):
-    #función decoratora
+    #función decorador
     def decorador(programa):
         def compilador():
             print("Parámetros", kwargs)
@@ -9,7 +9,7 @@ def asm_pio(*args, **kwargs):
     return decorador
 
 def decorador_instr(fun_inst):
-    #función decoratora sin retorno
+    #función decorador sin retorno
     def decoracion_instr(self,*args, **kwargs):
         fun_inst(self,*args, **kwargs)
         return None
@@ -34,7 +34,7 @@ class StateMachine:
         fsms[id_]=self
         pass
 
-
+#esta funcion simula La maquina de estados finitos
   def active(self, x=None):
     '''Esta rutina simula exclisivamnte esa FSM. Sería interesante crear simulación en parlelo con otras FSM'''
     #Simula FMS
