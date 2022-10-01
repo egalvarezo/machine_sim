@@ -1,7 +1,8 @@
 def asm_pio(*args, **kwargs):
+    #comit test
     def decorador(programa):
         def compilador():
-            print("Parámetros", kwargs) 
+            print("Parámetros", kwargs)
             programa()
             return None
         return compilador
@@ -10,14 +11,14 @@ def asm_pio(*args, **kwargs):
 def decorador_instr(fun_inst):
     def decoracion_instr(self,*args, **kwargs):
         fun_inst(self,*args, **kwargs)
-        return None 
+        return None
     return decoracion_instr
 
 pins='pins'
 
 class PIO():
     OUT_LOW='PIO.OUT_LOW'
-    
+
 
 class StateMachine:
   def __init__(self, id_, program, freq=125000000, **kwargs):
@@ -30,8 +31,8 @@ class StateMachine:
         sm_iniciandose=None
         fsms[id_]=self
         pass
-      
-        
+
+
   def active(self, x=None):
     '''Esta rutina simula exclisivamnte esa FSM. Sería interesante crear simulación en parlelo con otras FSM'''
     if x==1:
@@ -39,7 +40,7 @@ class StateMachine:
 
 fsms=[None]*8
 
-sm_iniciandose=None    
+sm_iniciandose=None
 
 
 class nop:
@@ -50,24 +51,22 @@ class nop:
         sm_iniciandose.lista_instr.append(self)
 
         pass
-     
+
     def __getitem__(self,name):
         #print('nop.__getattr__',name)
         pass
-        
+
 class set(nop):
     def __init__(self,*args, **kwargs):
         super().__init__(*args, **kwargs)
         pass
-   
+
 class wrap_target(nop):
     def __init__(self,*args, **kwargs):
          super().__init__(*args, **kwargs)
-         pass 
-  
+         pass
+
 class wrap(nop):
     def __init__(self,*args, **kwargs):
          super().__init__(*args, **kwargs)
-         pass 
-         
-         
+         pass
